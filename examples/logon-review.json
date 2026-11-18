@@ -1,0 +1,49 @@
+{
+  "plan": {
+    "table": "DeviceLogonEvents",
+    "hours": 4,
+    "target": "lab-ws01"
+  },
+  "rows": [
+    {
+      "TimeGenerated": "2026-01-14T09:03:00Z",
+      "AccountName": "lab-admin",
+      "DeviceName": "lab-ws01",
+      "ActionType": "LogonFailed",
+      "RemoteIP": "192.0.2.18",
+      "RemoteDeviceName": "lab-client"
+    },
+    {
+      "TimeGenerated": "2026-01-14T09:02:00Z",
+      "AccountName": "lab-user",
+      "DeviceName": "lab-ws01",
+      "ActionType": "LogonFailed",
+      "RemoteIP": "192.0.2.18",
+      "RemoteDeviceName": "lab-client"
+    },
+    {
+      "TimeGenerated": "2026-01-14T09:01:00Z",
+      "AccountName": "lab-user",
+      "DeviceName": "lab-ws01",
+      "ActionType": "LogonFailed",
+      "RemoteIP": "192.0.2.18",
+      "RemoteDeviceName": "lab-client"
+    }
+  ],
+  "report": {
+    "findings": [
+      {
+        "title": "One source failed authentication against two lab accounts",
+        "assessment": "Three failures in two minutes warrant review. A stale saved credential could explain the repeated attempts.",
+        "confidence": "low",
+        "technique": "unknown",
+        "next_check": "Check subsequent successful sign-ins and identify the owner of lab-client.",
+        "evidence": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  }
+}
